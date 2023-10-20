@@ -115,6 +115,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: JoyStick
       objectReference: {fileID: 0}
+    - target: {fileID: 8261787838158745119, guid: 2fca96a0a273840a19ecc4796fa573bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8d00ad584047669458dff31e6af9c333,
+        type: 3}
     - target: {fileID: 8894354162051353283, guid: 2fca96a0a273840a19ecc4796fa573bb,
         type: 3}
       propertyPath: m_Pivot.x
