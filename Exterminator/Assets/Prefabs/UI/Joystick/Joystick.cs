@@ -38,15 +38,4 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
         onStickValueUpdated?.Invoke(Vector2.zero);
     }
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
 }
