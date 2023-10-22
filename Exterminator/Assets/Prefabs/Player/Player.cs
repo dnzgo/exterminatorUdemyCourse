@@ -9,12 +9,16 @@ public class Player : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] float moveSpeed = 20f;
     [SerializeField] float turnSpeed = 30f;
+    [SerializeField] float animTurnSpeed = 5f;
 
     Vector2 moveInput;
     Vector2 aimInput;
 
     Camera mainCamera;
     CameraController cameraController;
+    Animator animator;
+
+    float animatorTurnSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,7 @@ public class Player : MonoBehaviour
         aimJoystick.onStickValueUpdated += AimInputUpdated;
         mainCamera = Camera.main;
         cameraController = FindObjectOfType<CameraController>();
+        animator = GetComponent<Animator>();
     }
 
     void AimInputUpdated(Vector2 inputValue)
@@ -54,6 +59,13 @@ public class Player : MonoBehaviour
         Vector3 moveDir = StickInputToWorldDir(moveInput);
         characterController.Move(moveDir * Time.deltaTime * moveSpeed);
         UpdateAim(moveDir);
+
+        float forward = Vector3.Dot(moveDir, transform.forward);
+        float right = Vector3.Dot(moveDir, transform.right);
+
+        animator.SetFloat("forwardSpeed", forward);
+        animator.SetFloat("rightSpeed", right);
+
     }
 
     private void UpdateAim(Vector3 currentMoveDir)
@@ -77,10 +89,21 @@ public class Player : MonoBehaviour
 
     private void RotateTowards(Vector3 aimDir)
     {
+        float currentTurnSpeed = 0f;
         if (aimDir.magnitude != 0)
         {
+            Quaternion previousRotation = transform.rotation;
+
             float turnLerpAlpha = turnSpeed * Time.deltaTime;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(aimDir, Vector3.up), turnLerpAlpha);
+
+            Quaternion currentRotation = transform.rotation;
+            float direction = Vector3.Dot(aimDir, transform.right) > 0 ? 1 : -1;
+            float rotationDelta = Quaternion.Angle(previousRotation, currentRotation) * direction;
+            currentTurnSpeed = rotationDelta / Time.deltaTime;
+
         }
+        animatorTurnSpeed = Mathf.Lerp(animatorTurnSpeed, currentTurnSpeed, Time.deltaTime * animTurnSpeed);
+        animator.SetFloat("turningSpeed", animatorTurnSpeed);
     }
 }
