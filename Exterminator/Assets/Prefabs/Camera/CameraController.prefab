@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTransform: {fileID: 0}
+  turnSpeed: 10
 --- !u!1 &6190325219393247362
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138e21d7ad4cb4af4a3d216033d2b578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armLength: 16
+  armLength: 11
   child: {fileID: 2881296544420905295}
 --- !u!1 &6889610154223621162
 GameObject:
