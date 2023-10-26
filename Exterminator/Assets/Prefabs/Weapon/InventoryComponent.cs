@@ -51,6 +51,11 @@ public class InventoryComponent : MonoBehaviour
 
     }
 
+    internal Weapon GetActiveWeapon()
+    {
+        return weapons[currentWeaponIndex];
+    }
+
     private void EquipWeapon(int weaponIndex)
     {
         if (weaponIndex < 0 || weaponIndex >= weapons.Count)
