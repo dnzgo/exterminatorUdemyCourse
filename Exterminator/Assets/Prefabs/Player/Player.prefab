@@ -55,13 +55,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6260974165821667231}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.4382475, y: 0.41049513, z: -0.50005615, w: 0.62400055}
-  m_LocalPosition: {x: -0.0019, y: 0.0273, z: -0.0191}
+  m_LocalRotation: {x: -0.6644258, y: 0.27597263, z: -0.29581937, w: 0.62838554}
+  m_LocalPosition: {x: 0.0529, y: 0.0333, z: -0.0048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2475222996379654475}
-  m_LocalEulerAnglesHint: {x: -7.839, y: 73.651, z: -83.289}
+  m_LocalEulerAnglesHint: {x: -42.203, y: 92.727, z: -94.486}
 --- !u!1 &8938592582238507416
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   moveSpeed: 5
   turnSpeed: 8
   animTurnSpeed: 15
+  inventoryComponent: {fileID: 1225522322885890790}
 --- !u!95 &4964651485086478115
 Animator:
   serializedVersion: 5
@@ -176,8 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initWeaponPrefabs:
-  - {fileID: -4185017247124275976, guid: aba8e104b4795414ea4cb38442575aa1, type: 3}
   - {fileID: 8494237130722299318, guid: 034baa6f46fca4af0bde487dc06574d4, type: 3}
+  - {fileID: -4185017247124275976, guid: aba8e104b4795414ea4cb38442575aa1, type: 3}
   defaultWeaponSlot: {fileID: 2475222996379654473}
   weaponSlots:
   - {fileID: 8809441725653615539}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 20f;
     [SerializeField] float turnSpeed = 30f;
     [SerializeField] float animTurnSpeed = 5f;
+
+    [Header("Inventory")]
+    [SerializeField] InventoryComponent inventoryComponent;
 
     Vector2 moveInput;
     Vector2 aimInput;
@@ -25,14 +29,33 @@ public class Player : MonoBehaviour
     {
         moveJoystick.onStickValueUpdated += MoveInputUpdated;
         aimJoystick.onStickValueUpdated += AimInputUpdated;
+        aimJoystick.onStickTaped += StartSwitchWeapon;
         mainCamera = Camera.main;
         cameraController = FindObjectOfType<CameraController>();
         animator = GetComponent<Animator>();
     }
 
+    void StartSwitchWeapon()
+    {
+        animator.SetTrigger("switchWeapon");
+    }
+
+    public void SwitchWeapon()
+    {
+        inventoryComponent.NextWeapon();
+    }
+
     void AimInputUpdated(Vector2 inputValue)
     {
         aimInput = inputValue;
+        if (aimInput.magnitude > 0)
+        {
+            animator.SetBool("attacking", true);
+        }
+        else
+        {
+            animator.SetBool("attacking", false);
+        }
     }
     void MoveInputUpdated(Vector2 inputValue)
     {
