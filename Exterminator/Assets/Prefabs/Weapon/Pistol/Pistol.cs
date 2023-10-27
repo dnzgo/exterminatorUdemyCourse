@@ -5,22 +5,12 @@ using UnityEngine;
 public class Pistol : Weapon
 {
     [SerializeField] AimComponent aimComponent;
+    [SerializeField] float damage = 8f;
 
     public override void Attack()
     {
         GameObject target = aimComponent.GetAimTarget();
-        Debug.Log($"aiming at {target}");
+        DamageGameObject(target, damage);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
