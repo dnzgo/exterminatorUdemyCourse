@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 1440061850426380360}
   - component: {fileID: 1777417156877961485}
   - component: {fileID: -7346027726097616533}
+  - component: {fileID: 7427106876604198714}
+  - component: {fileID: 6884164504989421604}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -185,6 +187,34 @@ MonoBehaviour:
     type: 3}
   healthBarAttachPoint: {fileID: 1511950464172654390}
   healthComponent: {fileID: 6459725740725959572}
+--- !u!114 &7427106876604198714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575084003112290372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da52f2d944a31456494a1afc94e0fb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awareDistance: 2
+--- !u!114 &6884164504989421604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575084003112290372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ac5646fc6ab4f03abe06e216f6b91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightDistance: 5
+  sightHalfAngle: 45
+  eyeHeight: 1
 --- !u!1001 &1243676715145969846
 PrefabInstance:
   m_ObjectHideFlags: 0
