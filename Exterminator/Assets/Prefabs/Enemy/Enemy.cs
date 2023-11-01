@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] HealthComponent healthComponent;
     [SerializeField] Animator animator;
+    [SerializeField] PerceptionComponent perceptionComponent;
+
+    GameObject target;
 
     void Start()
     {
@@ -15,9 +18,22 @@ public class Enemy : MonoBehaviour
             healthComponent.onHealthEmpty += StartDeath;
             healthComponent.onTakeDamage += TakenDamage;
         }
+        perceptionComponent.onPerceptionTargetChanged += TargetChanged;
     }
 
-    void TakenDamage(float health, float delta, float maxHealth)
+    private void TargetChanged(GameObject target, bool sensed)
+    {
+        if (sensed)
+        {
+            this.target = target;
+        }
+        else
+        {
+            this.target = null;
+        }
+    }
+
+    void TakenDamage(float health, float delta, float maxHealth, GameObject instigator)
     {
         
     }
@@ -38,6 +54,17 @@ public class Enemy : MonoBehaviour
     public void OnDeathAnimationFinished()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (target != null)
+        {
+            Vector3 drawTargetPos = target.transform.position + Vector3.up;
+            Gizmos.DrawSphere(drawTargetPos, 0.7f);
+
+            Gizmos.DrawLine(transform.position + Vector3.up, drawTargetPos);
+        }
     }
 
 }

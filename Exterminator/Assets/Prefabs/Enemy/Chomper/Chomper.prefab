@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: -7346027726097616533}
   - component: {fileID: 7427106876604198714}
   - component: {fileID: 6884164504989421604}
+  - component: {fileID: 7469304639214438463}
+  - component: {fileID: 4727718034640319426}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -150,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthComponent: {fileID: 6459725740725959572}
   animator: {fileID: 1777417156877961485}
+  perceptionComponent: {fileID: 7469304639214438463}
 --- !u!95 &1777417156877961485
 Animator:
   serializedVersion: 5
@@ -199,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da52f2d944a31456494a1afc94e0fb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forgettingTime: 3
   awareDistance: 2
 --- !u!114 &6884164504989421604
 MonoBehaviour:
@@ -212,9 +216,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ac5646fc6ab4f03abe06e216f6b91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forgettingTime: 3
   sightDistance: 5
   sightHalfAngle: 45
   eyeHeight: 1
+--- !u!114 &7469304639214438463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575084003112290372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69191d9af2807476e9874f0a0757f14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  senses:
+  - {fileID: 6884164504989421604}
+  - {fileID: 7427106876604198714}
+  - {fileID: 4727718034640319426}
+--- !u!114 &4727718034640319426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575084003112290372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aae4524bd574bc78b4be0119642a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forgettingTime: 0
+  healthComponent: {fileID: 6459725740725959572}
+  hitMemory: 1.5
 --- !u!1001 &1243676715145969846
 PrefabInstance:
   m_ObjectHideFlags: 0
