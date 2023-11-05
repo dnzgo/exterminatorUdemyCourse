@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 6884164504989421604}
   - component: {fileID: 7469304639214438463}
   - component: {fileID: 4727718034640319426}
+  - component: {fileID: 707668056043449483}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -153,6 +154,7 @@ MonoBehaviour:
   healthComponent: {fileID: 6459725740725959572}
   animator: {fileID: 1777417156877961485}
   perceptionComponent: {fileID: 7469304639214438463}
+  behaviorTree: {fileID: 707668056043449483}
 --- !u!95 &1777417156877961485
 Animator:
   serializedVersion: 5
@@ -251,6 +253,18 @@ MonoBehaviour:
   forgettingTime: 0
   healthComponent: {fileID: 6459725740725959572}
   hitMemory: 1.5
+--- !u!114 &707668056043449483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575084003112290372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8b5fa29bd48436998ce8b74d2b7819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1243676715145969846
 PrefabInstance:
   m_ObjectHideFlags: 0
