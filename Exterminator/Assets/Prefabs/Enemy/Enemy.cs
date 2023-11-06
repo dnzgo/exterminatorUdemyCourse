@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
         if (behaviorTree && behaviorTree.Blackboard.GetBlackboardData("target", out GameObject target))
         {
             Vector3 drawTargetPos = target.transform.position + Vector3.up;
-            Gizmos.DrawSphere(drawTargetPos, 0.7f);
+            Gizmos.DrawWireSphere(drawTargetPos, 0.7f);
 
             Gizmos.DrawLine(transform.position + Vector3.up, drawTargetPos);
         }
